@@ -13,7 +13,7 @@ use App\Http\Controllers\ArticleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('articles', [ArticleController::class]);
+Route::resource('articles', ArticleController::class);
 
 Route::get('/', function () {
     return view('welcome');
