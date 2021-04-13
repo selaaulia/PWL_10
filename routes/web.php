@@ -13,8 +13,9 @@ use App\Http\Controllers\ArticleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('articles', ArticleController::class);
 Route::get('/articles/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
+Route::resource('articles', ArticleController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
