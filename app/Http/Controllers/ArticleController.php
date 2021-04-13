@@ -104,4 +104,10 @@ class ArticleController extends Controller
     {
         //
     }
+
+    public function cetak_pdf(){
+        $article = Article::all();
+        $pdf = PDF::loadview('articles.articles_pdf', ['articles'=>$article]);
+        return $pdf->stream();
+    }
 }
