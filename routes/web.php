@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MahasiswaController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,10 @@ use App\Http\Controllers\ArticleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/articles/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
-Route::resource('articles', ArticleController::class);
-
+Route::get('mahasiswas/cari/',[MahasiswaController::class, 'search']);
+Route::get('/mahasiswa/nilai/cetak_khs/{id}',[MahasiswaController::class, 'cetak_khs']);
+Route::resource('mahasiswas', MahasiswaController::class);
+Route::get('mahasiswas/nilai/{nim}', [MahasiswaController::class, 'nilai'])->name('mahasiswas.nilai');
 
 Route::get('/', function () {
     return view('welcome');
